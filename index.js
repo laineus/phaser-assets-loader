@@ -72,7 +72,7 @@ module.exports = (settings, { projectRoot } = {}) => {
         clearTimeout(timer)
         timer = setTimeout(() => {
           exportJson()
-          callback()
+          if (callback) callback()
         }, 2000)
       })
     })
