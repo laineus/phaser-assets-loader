@@ -8,7 +8,7 @@ const defaultSettings = {
   spriteSheetSettingsFileName: 'settings.json'
 }
 
-module.exports = (settings, { projectRoot } = {}) => {
+module.exports = (settings, { projectRoot = process.cwd() } = {}) => {
   settings = Object.assign({}, defaultSettings, settings)
   let timer = null
 
