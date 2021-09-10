@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const program = require('commander')
+const path = require('path')
+const useAssetsLoader = require('../index.js')
+
+program
+  .option('--config <path>', 'the path to config file', String)
+  .option('--watch', 'watch files')
+  .parse(process.argv)
+
+const settings = require(path.resolve(program.config))
+
+if (!Array.isArray(settings.patterns)) {
+  console.log('"patterns" option is missing:')
+  return program.help()
+}
+
+const { exportJson, watch } = useAssetsLoader(settings, { projectRoot: process.env.INIT_CWD })
+
+exportJson()
+console.log('PhaserAssetsLoader: Initialized')
+if (program.watch) {
+  console.log('PhaserAssetsLoader: Watching...')
+  watch(() => {
+    console.log('PhaserAssetsLoader: Reloaded')
+  })
+}
