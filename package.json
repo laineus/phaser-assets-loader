@@ -1,6 +1,6 @@
 {
   "name": "phaser-assets-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Load assets automatically for Phaser3",
   "main": "index.js",
   "bin": {
