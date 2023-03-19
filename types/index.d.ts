@@ -19,26 +19,23 @@ interface Option {
 }
 
 declare module 'phaser-assets-loader' {
-  declare function phaserAssetsLoader(settings: Settings, option?: Option ): {
+  export default function phaserAssetsLoader(settings: Settings, option?: Option ): {
     exportJson: () => void
     watch: (callbackFn: () => void) => void
   }
-  export default phaserAssetsLoader
 }
 
-declare module 'phaser-assets-loader/rollupPlugin' {
-  declare function phaserAssetsRollupPlugin(settings: Settings): {
+declare module 'phaser-assets-loader/plugins/rollupPlugin' {
+  export default function phaserAssetsRollupPlugin(settings: Settings): {
     name: string
     config: () => void
   }
-  export default phaserAssetsRollupPlugin
 }
 
-declare module 'phaser-assets-loader/webpackPlugin' {
-  declare class PhaserAssetsWebpackPlugin {
+declare module 'phaser-assets-loader/plugins/webpackPlugin' {
+  export default class PhaserAssetsWebpackPlugin {
     constructor (settings: Settings)
   }
-  export default PhaserAssetsWebpackPlugin
 }
 
 export interface PhaserAssets {
