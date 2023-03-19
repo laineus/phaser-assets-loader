@@ -3,6 +3,11 @@
   "version": "1.0.1",
   "description": "Load assets automatically for Phaser3",
   "main": "index.js",
+  "exports": {
+    "./rollupPlugin": "./plugins/rollupPlugin.js",
+    "./webpackPlugin": "./plugins/webpackPlugin.js"
+  },
+  "types": "types/index.d.ts",
   "bin": {
     "phaser-assets": "bin/index"
   },

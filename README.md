@@ -65,6 +65,35 @@ if ('if you want') {
 }
 ```
 
+## With Rollup or Vite
+
+```js
+import { defineConfig } from 'vite'
+import phaserAssetsRollupPlugin from 'phaser-assets-loader/rollupPlugin'
+
+export default defineConfig({
+  ..
+  plugins: [
+    phaserAssetsRollupPlugin({ patterns: [..] })
+  ]
+  ..
+})
+```
+
+## With Webpack
+
+```js
+import PhaserAssetsWebpackPlugin from 'phaser-assets-loader/webpackPlugin'
+
+module.exports = {
+  ..
+  plugins: [
+    new PhaserAssetsWebpackPlugin({ patterns: [..] })
+  ]
+  ..
+}
+```
+
 ## Use the exported json in Phaser3
 
 An example of the exported json.
