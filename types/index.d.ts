@@ -40,3 +40,12 @@ declare module 'phaser-assets-loader/webpackPlugin' {
   }
   export default PhaserAssetsWebpackPlugin
 }
+
+export interface PhaserAssets {
+  [key: string]: [name: string, path: string | string[], spritesheet?: {
+    frameWidth: number
+    frameHeight: number
+    startFrame: number
+    endFrame: number
+  }][]
+}
