@@ -69,7 +69,7 @@ if ('if you want') {
 
 ```js
 import { defineConfig } from 'vite'
-import phaserAssetsRollupPlugin from 'phaser-assets-loader/plugin/rollupPlugin'
+import phaserAssetsRollupPlugin from 'phaser-assets-loader/plugins/rollupPlugin'
 
 export default defineConfig({
   ..
@@ -83,7 +83,7 @@ export default defineConfig({
 ## With Webpack
 
 ```js
-import PhaserAssetsWebpackPlugin from 'phaser-assets-loader/plugin/webpackPlugin'
+import PhaserAssetsWebpackPlugin from 'phaser-assets-loader/plugins/webpackPlugin'
 
 module.exports = {
   ..
