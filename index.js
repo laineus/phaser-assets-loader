@@ -36,7 +36,7 @@ module.exports = (settings, { projectRoot = process.cwd() } = {}) => {
       const fileNames = fs.readdirSync(dir)
       const spriteSheetSettings = getSpriteSheetSettings(dir)
       const list = fileNames.filter(fileName => pattern.rule.test(fileName)).reduce((list, fileName) => {
-        const assetKeyName = `${pattern.prefix}${fileName.split('.')[0]}`
+        const assetKeyName = `${pattern.prefix ?? ''}${fileName.split('.')[0]}`
         const url = `${pattern.dir}${pattern.dir.endsWith('/') ? '' : '/'}${fileName}`
         const sameKeyRow = list.find(v => v[0] === assetKeyName)
         if (sameKeyRow) {
