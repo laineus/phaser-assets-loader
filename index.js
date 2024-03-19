@@ -5,7 +5,7 @@ const sizeOf = require('image-size')
 const defaultSettings = {
   documentRoot: 'public',
   output: 'assets.json',
-  spriteSheetSettingsFileName: 'settings.json'
+  spriteSheetSettingsFileName: 'spritesheets.json'
 }
 
 module.exports = (settings, { projectRoot = process.cwd() } = {}) => {
@@ -49,7 +49,6 @@ module.exports = (settings, { projectRoot = process.cwd() } = {}) => {
         }
         return list
       }, [])
-      if (pattern.callback) pattern.callback(list)
       result[pattern.type] = (result[pattern.type] || []).concat(list)
       return result
     }, {})

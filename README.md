@@ -34,7 +34,7 @@ module.exports = {
 |patterns|Required|An Array of assets settings|
 |documentRoot|`'public'`|The path to the document root directory.|
 |output|`'assets.json'`|The path to the json file to output.|
-|spriteSheetSettingsFileName|`'settings.json'`|The name of settings file for spritesheet.|
+|spriteSheetSettingsFileName|`'spritesheets.json'`|The name of settings file for spritesheet.|
 
 ### Patterns
 
@@ -44,7 +44,6 @@ module.exports = {
 |prefix|No|Prefix for the assets key name.|
 |dir|Yes|Assets directory from document root. It can be started with `/` or `./`.|
 |rule|Yes|Name pattern of files to be assets.|
-|callback|No|Callback function after loaded. Given arg that Array of the loaded data.|
 
 ## CLI
 
@@ -144,4 +143,4 @@ Just define num of horizontal and vertical for each spritesheet into JSON file l
 ]
 ```
 
-The `image` will be `spritesheet` if the setting is exsists.
+The `image` will be `spritesheet` if the setting exsists.

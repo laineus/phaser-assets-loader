@@ -1,10 +1,38 @@
 
+type AssetTypes = AssetTypesWithFile | AssetTypesWithFiles | AssetTypesWithFileOrFiles | AssetTypesSpritesheet
+type AssetTypesWithFile = 'animation'
+  | 'aseprite'
+  | 'binary'
+  | 'css'
+  | 'glsl'
+  | 'html'
+  | 'htmlTexture'
+  | 'json'
+  | 'multiatlas'
+  | 'obj'
+  | 'pack'
+  | 'plugin'
+  | 'sceneFile'
+  | 'sceneFile'
+  | 'script'
+  | 'svg'
+type AssetTypesWithFiles = 'scripts'
+type AssetTypesWithFileOrFiles = 'aseprite'
+  | 'atlas'
+  | 'atlasXML'
+  | 'audio'
+  | 'audioSprite'
+  | 'bitmapFont'
+  | 'image'
+  | 'unityAtlas'
+  | 'video'
+type AssetTypesSpritesheet = 'spritesheet'
+
 interface Pattern {
-  type: string
+  type: AssetTypes
   prefix?: string
   dir: string
   rule: RegExp
-  callback?: (list: [assetKeyName: string, url: string, spriteSheetOption?: any]) => void
 }
 
 interface Settings {
@@ -38,8 +66,14 @@ declare module 'phaser-assets-loader/plugins/webpackPlugin' {
   }
 }
 
-export interface PhaserAssets {
-  [key: string]: [name: string, path: string | string[], spritesheet?: {
+export type PhaserAssets = {
+  [key in AssetTypesWithFile]?: [name: string, path: string][]
+} & {
+  [key in AssetTypesWithFiles]?: [name: string, path: string[]][]
+} & {
+  [key in AssetTypesWithFileOrFiles]?: [name: string, path: string | string[]][]
+} & {
+  [key in AssetTypesSpritesheet]?: [name: string, path: string, spritesheet: {
     frameWidth: number
     frameHeight: number
     startFrame: number
